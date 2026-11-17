@@ -99,25 +99,34 @@ h1 {
   margin: 2.75rem 0 1.25rem;
 }
 
-/* Intro */
+/* Intro: one large centered portrait photo, then the text, centered */
 .intro {
-  display: grid;
-  grid-template-columns: 15rem 1fr;
-  gap: 2rem;
-  align-items: start;
+  text-align: center;
   margin: 2.5rem 0 1rem;
 }
 .intro img {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: 2px;
   display: block;
+  /* As wide as the column allows, but never so tall that the text drops off a laptop screen */
+  width: min(100%, 30rem, 52.5vh);
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  margin: 0 auto 1.75rem;
+  border-radius: 3px;
 }
+.intro > div { max-width: 34rem; margin: 0 auto; }
 .intro p { margin: 0 0 0.75rem; }
 .intro .role { font-size: 1.2rem; line-height: 1.4; }
 .contact { font-family: var(--sans); font-size: 0.95rem; color: var(--muted); }
-.contact a, .contact span { margin-right: 1.25rem; }
+.contact a, .contact span { margin: 0 0.6rem; display: inline-block; }
+
+/* The sign photo, tucked beside the heading on the paper pages */
+.sign {
+  float: right;
+  width: 11rem;
+  margin: 0.5rem 0 1rem 1.75rem;
+}
+.sign img { display: block; width: 100%; height: auto; border-radius: 3px; }
 
 /* Sections */
 h2 {
@@ -226,8 +235,8 @@ cite { font-style: italic; }
 
 @media (max-width: 560px) {
   body { font-size: 1.0625rem; }
-  .intro { grid-template-columns: 1fr; gap: 1.25rem; margin-top: 1.75rem; }
-  .intro img { max-width: 18rem; }
+  .intro { margin-top: 1.75rem; }
+  .sign { width: 7.5rem; margin: 0.35rem 0 0.75rem 1rem; }
   .photo-row { grid-template-columns: 1fr; gap: 1.25rem; }
   .photo-row figure:first-child img { max-width: 18rem; }
   .ranked > li { padding-left: 2.9rem; }
